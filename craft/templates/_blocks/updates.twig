@@ -1,0 +1,52 @@
+{# Turn list of modifiers into a space-separated string #}
+{% set modifiers = [] %}
+{% for modifier in block.blockModifiers %}
+  {% set modifiers = modifiers|merge([modifier.className]) %}
+{% endfor %}
+{% set modifiers = modifiers|join(" ") %}
+
+{# Get all the updates #}
+{% set updates = craft.entries({section: 'updates', order: 'postDate DESC'}) %}
+
+{# Get an array of this block's category slugs #}
+{% set categorySlugs = [] %}
+{% for category in block.category %}
+    {% set categorySlugs = categorySlugs|merge([category.slug]) %}
+{% endfor %}
+
+{# Extract updates with a category slug that matches the filter above #}
+{% set blockUpdates = [] %}
+{% for update in updates %}
+  {% set categoryMatch = false %}
+  {% for category in update.category %}
+    {% if category.slug in categorySlugs %}
+      {% set categoryMatch = true %}
+    {% endif %}
+  {% endfor %}
+  {% if categoryMatch %}
+    {% set blockUpdates = blockUpdates|merge([update]) %}
+  {% endif %}
+{% endfor %}
+
+{# Limit the resulting array #}
+{% set totalUpdates = blockUpdates|length %}
+{% set blockUpdates = blockUpdates|slice(0, block.limit) %}
+
+<div class="container block updates">
+  <div class="grid">
+    <div class="col-1-of-1">
+      <header>
+        {{ block.heading }}  
+      </header>
+    </div>
+    {% for update in blockUpdates %}
+    {% include "updates/_" ~ update.thumbnailType %}
+    {% endfor %}
+    {% if totalUpdates > blockUpdates|length %}
+    <div class="col-1-of-1 more-updates">
+      <h3>These are just a few of the things we’re up to!</h3>
+      <a href="/updates" class="btn btn-primary">See All of Our Updates</a>
+    </div>
+    {% endif %}
+  </div>
+</div>

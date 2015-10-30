@@ -1,0 +1,16 @@
+.block {
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+  &.narrow {
+    @include max-inner-width(768px);
+  }
+
+  &.no-padding-bottom {
+    padding-bottom: 0;
+  }
+
+  &.no-padding-top {
+    padding-top: 0;
+  }
+}

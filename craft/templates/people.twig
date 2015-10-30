@@ -1,0 +1,7 @@
+{% extends "_layout" %}
+
+{% block content %}
+  {% for block in entry.blocks %}
+    {% include "_blocks/" ~ block.type %}
+  {% endfor %}
+{% endblock %}

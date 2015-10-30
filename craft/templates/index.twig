@@ -1,0 +1,9 @@
+{% extends "_layout" %}
+
+{% block metaTitle %}{{ entry.metaTitle ? entry.metaTitle : entry.title|striptags }} - {{ parent() }}{% endblock %}
+{% block metaDescription %}{{ entry.metaDescription ? entry.metaDescription : parent() }}{% endblock %}
+{% block content %}
+	{% for block in entry.pageBlocks %}
+    {% include "_blocks/" ~ block.type %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,54 @@
+{# Turn list of modifiers into a space-separated string #}
+{% set modifiers = [] %}
+{% for modifier in block.blockModifiers %}
+  {% set modifiers = modifiers|merge([modifier.className]) %}
+{% endfor %}
+{% set modifiers = modifiers|join(" ") %}
+
+<div class="container block images{% if modifiers %} {{ modifiers }}{% endif %}">
+  <div class="image-grid {{ block.layout }}" data-images-block>
+    {% switch block.layout %}
+    {% case "t-up" %}
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[0].url }})"></div>
+      </div>
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[1].url }})"></div>
+        <div class="image" style="background-image: url({{ block.images[2].url }})"></div>
+      </div>
+    {% case "t-down" %}
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[0].url }})"></div>
+        <div class="image" style="background-image: url({{ block.images[1].url }})"></div>
+      </div>
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[2].url }})"></div>
+      </div>
+    {% case "t-right" %}
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[0].url }})"></div>
+        <div class="image" style="background-image: url({{ block.images[1].url }})"></div>
+      </div>
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[2].url }})"></div>
+      </div>
+    {% case "t-left" %}
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[0].url }})"></div>
+      </div>
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[1].url }})"></div>
+        <div class="image" style="background-image: url({{ block.images[2].url }})"></div>
+      </div>
+    {% case "windowpane" %}
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[0].url }})"></div>
+        <div class="image" style="background-image: url({{ block.images[1].url }})"></div>
+      </div>
+      <div class="image-set">
+        <div class="image" style="background-image: url({{ block.images[2].url }})"></div>
+        <div class="image" style="background-image: url({{ block.images[3].url }})"></div>
+      </div>
+    {% endswitch %}
+  </div>
+</div>

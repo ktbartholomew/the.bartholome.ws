@@ -1,0 +1,114 @@
+.block.images {
+  .image {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .image-grid {
+    height: 768px;
+
+    .image-set, .image {
+      height: 100%;
+    }
+
+
+    &.t-up {
+      .image-set:nth-child(1) {
+        height: calc(50% - 15px);
+      }
+
+      .image-set:nth-child(2) {
+        height: calc(50% - 15px);
+        margin-top: 30px;
+        
+        .image {
+          float: left;
+          width: calc(50% - 15px);
+        }
+
+        .image:nth-child(2) {
+          margin-left: 30px;
+        }
+      }
+    }
+
+    &.t-down {
+      .image-set:nth-child(1) {
+        height: calc(50% - 15px);
+
+        .image {
+          float: left;
+          width: calc(50% - 15px);
+        }
+
+        .image:nth-child(2) {
+          margin-left: 30px;
+        }
+      }
+
+      .image-set:nth-child(2) {
+        height: calc(50% - 15px);
+        margin-top: 30px;
+      }
+    }
+
+    &.t-right {
+      .image-set:nth-child(1) {
+        float: left;
+        width: calc(50% - 15px);
+
+        .image {
+          height: calc(50% - 15px);
+
+          &:nth-child(2) {
+            margin-top: 30px;
+          }
+        }
+      }
+      .image-set:nth-child(2) {
+        float: left;
+        margin-left: 30px;
+        width: calc(50% - 15px);
+      }
+    }
+
+    &.t-left {
+      .image-set:nth-child(1) {
+        float: left;
+        width: calc(50% - 15px);
+      }
+      .image-set:nth-child(2) {
+        float: left;
+        margin-left: 30px;
+        width: calc(50% - 15px);
+
+        .image {
+          height: calc(50% - 15px);
+
+          &:nth-child(2) {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+
+    &.windowpane {
+      .image-set:nth-child(1) {
+        height: calc(50% - 15px);
+      }
+      .image-set:nth-child(2) {
+        height: calc(50% - 15px);
+        margin-top: 30px;
+      }
+      .image {
+        float: left;
+        width: calc(50% - 15px);
+
+        &:nth-child(2) {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+}

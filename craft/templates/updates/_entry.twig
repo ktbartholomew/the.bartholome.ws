@@ -1,0 +1,48 @@
+{% extends "_layout" %}
+
+{% set prevEntry = entry.getPrev({section: 'updates'}) %}
+{% set nextEntry = entry.getNext({section: 'updates'}) %}
+
+{% if entry is not defined %}
+  {% set entry = craft.entries({section: 'updates', slug: slug})|first %}
+{% endif %}
+
+{% block metaTitle %}{{ entry.metaTitle ? entry.metaTitle : entry.title|striptags }} - {{ parent() }}{% endblock %}
+{% block openGraphTitle %}{{ entry.openGraphTitle ? entry.openGraphTitle : entry.metaTitle  }}{% endblock %}
+{% block openGraphDescription %}{{ entry.openGraphDescription ? entry.openGraphDescription : entry.metaDescription  }}{% endblock %}
+{% block canonical %}
+<link rel="canonical" href="{{ entry.url }}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="text-center">{{ entry.title|raw }}</h1>
+  </div>
+  {% for block in entry.updateBlocks %}
+    {% include "_blocks/" ~ block.type %}
+  {% endfor %}
+
+  {% if prevEntry or nextEntry %}
+    <section class="container block updates prev-next-update">
+      <header>
+        <h3><span class="text-smaller">What else are we up to?</span></h3>  
+      </header>
+      <div class="grid">
+        <div class="col-1-of-2 text-left">
+          {% if prevEntry %}
+            {% set update = prevEntry %}
+            {% include "updates/_" ~ update.thumbnailType %}
+            <span class="update-description">Newer ({{ update.postDate|date('F j') }})</span>
+          {% endif %}
+        </div>
+        <div class="col-1-of-2 text-right">
+          {% if nextEntry %}
+            {% set update = nextEntry %}
+            {% include "updates/_" ~ update.thumbnailType %}
+            <span class="update-description">Older ({{ update.postDate|date('F j') }})</span>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+#site-footer {
+  background: $light-gray-background;
+  border-top: solid 1px $light-gray-border;
+  margin-top: 60px;
+  padding: 85px 0;
+
+  .container {
+    display: block;
+    margin: 0 auto;
+    @include max-inner-width(640px);
+  }
+}

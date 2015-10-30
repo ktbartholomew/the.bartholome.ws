@@ -1,0 +1,17 @@
+{# Turn list of modifiers into a space-separated string #}
+{% set modifiers = [] %}
+{% for modifier in block.blockModifiers %}
+  {% set modifiers = modifiers|merge([modifier.className]) %}
+{% endfor %}
+{% set modifiers = modifiers|join(" ") %}
+
+<div class="container block generic{% if modifiers %} {{ modifiers }}{% endif %}">
+  <div class="grid">
+    <div class="col-1-of-1">
+      <header>
+        {{ block.heading }}  
+      </header>
+      {{ block.body }}
+    </div>    
+  </div>
+</div>

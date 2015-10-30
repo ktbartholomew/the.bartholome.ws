@@ -1,0 +1,31 @@
+// Colors
+
+$light-gray-background: #F2EEEE;
+$light-gray-border: #C8C8C8;
+
+$body-color: #FCFAFA;
+
+$white: #FFF;
+
+$text-color: #333;
+$link-color: #0AC88C;
+
+// Font sizes
+$font-size-base: 14px;
+
+// Line spacing
+$line-height-base: 1.5;
+
+@mixin max-inner-width($width) {
+  $half-width: $width / 2;
+  $width-plus-padding: $width / 0.9;
+
+  padding-left: 5%;
+  padding-right: 5%;
+
+  @media only screen and (min-width: #{$width-plus-padding}) {
+    
+    padding-left: calc(50% - #{$half-width});
+    padding-right: calc(50% - #{$half-width});   
+  }
+}

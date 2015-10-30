@@ -1,0 +1,8 @@
+<div class="update-thumbnail {{ update.thumbnailType }}">
+  <div class="title">
+    <img src="{{ update.thumbnailImage|first.getUrl('smallSquare') }}" alt="{{ update.title }}">
+    <span>{{ update.title }}</span>
+  </div>
+  <p>{{ update.thumbnailLabel }}</p>
+  <a href="{{ update.url }}" class="more-link">Read More</a>
+</div>

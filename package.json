@@ -1,0 +1,27 @@
+{
+  "name": "the.bartholome.ws",
+  "version": "0.1.0",
+  "description": "Bartholomew family website",
+  "main": "index.html",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-compass": "~0.9.1",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-jekyll": "~0.4.2",
+    "grunt-sass": "^1.1.0",
+    "node-bourbon": "^4.2.3"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install && grunt build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:ktbartholomew/the.bartholome.ws.git"
+  },
+  "author": "Keith Bartholomew",
+  "license": "MIT"
+}

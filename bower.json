@@ -1,0 +1,22 @@
+{
+  "name": "the.bartholome.ws",
+  "version": "1.0.0",
+  "description": "Family website for the Bartholomews",
+  "main": "public/index.php",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.15",
+    "jquery": "~2.1.1"
+  }
+}

@@ -1,0 +1,13 @@
+{% set pages = craft.entries({section: 'pages', showInFooter: '1'}) %}
+<div id="site-footer">
+  <div class="container">
+    <div class="grid">
+      {% for page in pages %}
+      <div class="col-1-of-4">
+        <h4>{{ page.title }}</h4>
+        {{ page.footerContent }}
+      </div>  
+      {% endfor %}
+    </div>
+  </div>
+</div>
