@@ -10,16 +10,16 @@
 return array(
 
 	// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
-	'server' => $_ENV['MYSQL_HOST'],
+	'server' => getenv('MYSQL_HOST'),
 
 	// The database username to connect with.
-	'user' => $_ENV['MYSQL_USER'],
+	'user' => getenv('MYSQL_USER'),
 
 	// The database password to connect with.
-	'password' => $_ENV['MYSQL_PASS'],
+	'password' => getenv('MYSQL_PASS'),
 
 	// The name of the database to select.
-	'database' => $_ENV['MYSQL_DB'],
+	'database' => getenv('MYSQL_DB'),
 
 	// The prefix to use when naming tables. This can be no more than 5 characters.
 	'tablePrefix' => 'craft',

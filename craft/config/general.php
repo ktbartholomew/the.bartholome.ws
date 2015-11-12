@@ -8,9 +8,10 @@
  */
 
 return array(
-  'devMode' => $_ENV['CRAFT_DEVMODE'],
+  'devMode' => getenv('CRAFT_DEVMODE'),
+  'overridePhpSessionLocation' => false,
   'environmentVariables' => array(
-    'basePath' => $_ENV['CRAFT_BASEPATH'],
-    'baseUrl' => $_ENV['CRAFT_BASEURL'],
+    'basePath' => getenv('CRAFT_BASEPATH'),
+    'baseUrl' => getenv('CRAFT_BASEURL'),
   )
 );
